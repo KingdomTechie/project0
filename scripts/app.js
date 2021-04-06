@@ -56,6 +56,7 @@ const tomagatchi = {
         $("h1").text(`Hi ${$name}!!`);
         $("input").fadeOut(100);
         $("#petsubmit").fadeOut(100);
+    
     },
 
     ageCounter () {

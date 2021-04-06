@@ -45,7 +45,12 @@ button {
 .profilepic {
     border-style: solid;
     border-width: thin;
-    width:160px;
-    height: 132px;
+    width:132px;
+    height: 130px;
     margin-top: -1px;
+}
+
+.profilepic img {
+    max-width: 100%;
+    max-height: 100%;
 }

@@ -43,3 +43,19 @@ console.log("Welcome to the world little tomagatchi!");
 // 	- User views a death page
 // 	- graphics change to a graveyard background
 // 	- Pet card displays: ${Name} has died of ${which bar depleted}
+
+//** PROGRAM LOGIC  **//
+
+//** STEP 0 - add HTML structure elements */
+//** STEP 1 - Create tomagatchi object */
+
+const tomagatchi = {
+    name: "",
+    age: 0,
+    hungerScale: 0,
+    energyScale: 0,
+    happinessScale: 0,
+
+}
+
+

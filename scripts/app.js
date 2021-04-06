@@ -60,10 +60,13 @@ const tomagatchi = {
     happinessScale: 0,
 
     petName () {
-        $("h1").text("#petname").val();
+        $name = $("#petname").val();
+        console.log($name);
+        
+        $("h1").text(`Hi ${$name}!!`);
     }
 
-    
+
 }
 
 $("#petsubmit").on("click", tomagatchi.petName)

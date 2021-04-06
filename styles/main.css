@@ -7,7 +7,7 @@
 
   }
 
-form.petname {
+div.petname {
     margin-top: 6%;
     margin-left: 37%;
 }
@@ -17,7 +17,7 @@ button {
 }
 
 .hungry {
-    border
+    border-style: solid; 
     background-color: blue;
     display: inline-block;
     width: 31vh;

@@ -45,9 +45,9 @@ console.log("Welcome to the world little tomagatchi!");
 const tomagatchi = {
     name: "",
     age: 0,
-    hungerScale: 0,
-    energyScale: 0,
-    happinessScale: 0,
+    hungerScale: 10,
+    energyScale: 10,
+    happinessScale: 10,
 
     petName () {
         $age = $("<input class='age' type='text' placeholder='Age of your pet?'?></input>")
@@ -57,8 +57,13 @@ const tomagatchi = {
         $("input").fadeOut(100);
         $("#petsubmit").fadeOut(100);
         $profileStats = $(".stats");
-        $($profileStats).prepend(`Age: ${tomagatchi.age}`);
-        $
+        $($profileStats).prepend(`<p>Name: ${$name}</p><p>Age: ${tomagatchi.age}</p><p>Hungry: ${tomagatchi.hungerScale}</p><p>Energy: ${tomagatchi.energyScale}</p><p>Happy: ${tomagatchi.happinessScale}</p>`);
+        $hungryButton = $("<button>HUNGRY!</button>");
+        $energyButton = $("<button>Need Energy!</button>");
+        $happyButton = $("<button>Play with me!</button>");
+        $(".hungry").after($hungryButton);
+        $(".energy").after($energyButton);
+        $(".happy").after($happyButton);
     },
 
     ageCounter () {

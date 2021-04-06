@@ -34,7 +34,7 @@ button {
 
 .petcard {
     /* display: none; */
-    height: 165px;
+    height: 178px;
     width: 190px;
     border-style: solid;
     margin-left: 2%;
@@ -63,6 +63,7 @@ button {
 /* Work on this  */
 .stats {
     float: right;
+    margin-right: 60px;
 }
 
 .meters {
@@ -70,6 +71,7 @@ button {
     justify-content: space-around;
     align-items: center;
     max-height: 179px;
+    margin-top: 150px;
 
 }
 
@@ -99,7 +101,6 @@ span {
     position:absolute;
 }
 
-.profilepic-stats {
-    margin-top: 46px;
-    font-family: sans-serif;
+button .meters {
+    margin-top: 150px
 }

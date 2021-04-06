@@ -59,10 +59,14 @@ const tomagatchi = {
     energyScale: 0,
     happinessScale: 0,
 
+    petName () {
+        $("h1").text("#petname").val();
+    }
+
     
 }
 
-// $(".petname-button").on("click", tomagatchi.getName)
+$("#petsubmit").on("click", tomagatchi.petName)
 
 
 

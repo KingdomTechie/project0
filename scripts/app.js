@@ -47,7 +47,10 @@ console.log("Welcome to the world little tomagatchi!");
 //** PROGRAM LOGIC  **//
 
 //** STEP 0 - add HTML structure elements */
+// added divs for the 3 main pages of the game: start page, play page and death page
 //** STEP 1 - Create tomagatchi object */
+// Name will be parsed from the user input space when naming tomagatchi
+//
 
 const tomagatchi = {
     name: "",
@@ -56,6 +59,10 @@ const tomagatchi = {
     energyScale: 0,
     happinessScale: 0,
 
+    
 }
+
+// $(".petname-button").on("click", tomagatchi.getName)
+
 
 

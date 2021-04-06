@@ -73,6 +73,8 @@ const tomagatchi = {
     ageCounter () {
         tomagatchi.age++;
         $(".agescale").text(`Age: ${tomagatchi.age}`)
+        if(tomagatchi.age === 18)
+        $("img").attr("src", "adolescentdragon.jpeg")
     },
 // Modified from Dalton's reduceTime method in PokeASquare
 

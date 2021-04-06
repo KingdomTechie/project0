@@ -33,7 +33,7 @@ button {
 }
 
 .petcard {
-    display: none;
+    /* display: none; */
     height: 135px;
     width: 410px;
     border-style: solid;
@@ -42,3 +42,10 @@ button {
     margin-top: -4%;
 }
 
+.profilepic {
+    border-style: solid;
+    border-width: thin;
+    width:160px;
+    height: 132px;
+    margin-top: -1px;
+}

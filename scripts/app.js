@@ -56,10 +56,11 @@ const tomagatchi = {
         $("h1").text(`Hi ${$name}!!`);
         $("input").fadeOut(100);
         $("#petsubmit").fadeOut(100);
-        $("h1").after($age);
-        $($age).fadeIn(1000)
-        
     },
+
+    ageCounter () {
+        console.log("this is the age counter function");
+    }
 
     // petAge () {
     //     $ageButton = $("<button class='agebutton' )

@@ -50,12 +50,20 @@ const tomagatchi = {
     happinessScale: 0,
 
     petName () {
+        $age = $("<input class='age' type='text' placeholder='Age of your pet?'?></input>")
         $name = $("#petname").val();
-        console.log($name);
-        
-        $("h1").text(`Hi ${$name}!!`);
         tomagatchi.name = $name;
-    }
+        $("h1").text(`Hi ${$name}!!`);
+        $("input").fadeOut(100);
+        $("#petsubmit").fadeOut(100);
+        $("h1").after($age);
+        $($age).fadeIn(1000)
+        
+    },
+
+    // petAge () {
+    //     $ageButton = $("<button class='agebutton' )
+    // }
 
 
 }

@@ -44,7 +44,7 @@ console.log("Welcome to the world little tomagatchi!");
 
 const tomagatchi = {
     name: "",
-    age: 0,
+    age: 30,
     hungerScale: 10,
     energyScale: 10,
     happinessScale: 10,
@@ -71,10 +71,20 @@ const tomagatchi = {
         tomagatchi.age = setInterval(tomagatchi.ageCounter, 1000)
     },
     ageCounter () {
+        
         tomagatchi.age++;
         $(".agescale").text(`Age: ${tomagatchi.age}`)
-        if(tomagatchi.age === 18)
-        $("img").attr("src", "adolescentdragon.jpeg")
+        if(tomagatchi.age >= 18) {
+            $("img").attr("src", "adolescentdragon.jpeg");
+        }
+        if(tomagatchi.age >= 30) {
+            // $adultDragon.css()
+            $("img").addClass("adultdragon");
+            $("section.profilepic").addClass("adultdragon")
+            $("img").attr("src", "adultdragon.jpeg");
+            
+
+        }
     },
 // Modified from Dalton's reduceTime method in PokeASquare
 

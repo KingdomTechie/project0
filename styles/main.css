@@ -105,3 +105,14 @@ span {
     margin-top: -40px;
     margin-left: -332px;
 }
+
+img.adultdragon {
+    height: 100%;
+    margin-left: -53px;
+}
+
+section.profilepic.adultdragon {
+    width: 184px;
+    height: 174px;
+    margin-top: 34px;
+}

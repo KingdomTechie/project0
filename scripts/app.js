@@ -64,6 +64,7 @@ const tomagatchi = {
         $(".hungry").after($hungryButton);
         $(".energy").after($energyButton);
         $(".happy").after($happyButton);
+        tomagatchi.startTimer();
     },
 
     ageCounter () {
@@ -71,12 +72,20 @@ const tomagatchi = {
 
     },
 // Modified from Dalton's reduceTime method in PokeASquare
+
+    startTimer(){
+    // setInterval(function to run, time between each run)
+        tomagatchi.hungerScale = setInterval(tomagatchi.reduceHunger, 1000);
+  },
     reduceHunger(){
         tomagatchi.hungerScale--;
-        $("#timer").text(`timer: ${tomagatchi.hungerScale}s`);
-        if(tomagatchi.time <= 0){
-          clearInterval(tomagatchi.timer);
-          tomagatchi.round++;
+        tomagatchi.energyScale--;
+        tomagatchi.happinessScale--;
+        $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
+        $(".energyscale").text(`Energy: ${tomagatchi.hungerScale}`);
+        $(".happyscale").text(`Happy: ${tomagatchi.hungerScale}`);
+        if(tomagatchi.hungerScale <= 0){
+          clearInterval(tomagatchi.hungerScale);
         }
       },
 

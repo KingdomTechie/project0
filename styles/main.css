@@ -7,6 +7,10 @@
 
   }
 
+h1 {
+    font-family: sans-serif;
+} 
+
 div.petname {
     margin-top: 6%;
     margin-left: 37%;

@@ -2,22 +2,12 @@ console.log("Welcome to the world little tomagatchi!");
 
 // User Stories
 
-// Pick your tomagatchi page 
-
-// 	- Start page has graphics on it.  Tree, sunshine, and butterflies
-// 	- Player starts on this page to pick a tomagatchi pet.
-// 	- The picture of the animal will be displayed in the display box
-// 	- (Ice box) The player will be able to pick 1 out of 3 types of tomagatchi's
-// 	- (Ice box) User will use left and right arrows to cycle through the photos 
-// 	- The name of the type of tomagatchi will be displayed underneath its photo
-// 	- A select button will persist on the page, when the player decides, they will click the button.
-// 	- The button will trigger a transition into the Name your pet screen.  
 
 // Name your Pet Page
+//  - css - Tree, sunshine, and butterflies will remain on the page
 // 	- Player transitions onto the name your pet page.
-// 	- Tree, sunshine, and butterflies will remain on the page
 // 	- Player names their pet by inputting the name into the next box
-// 	- 
+// 	- input displays on the page
 	
 // Play Page
 
@@ -64,6 +54,7 @@ const tomagatchi = {
         console.log($name);
         
         $("h1").text(`Hi ${$name}!!`);
+        tomagatchi.name = $name;
     }
 
 

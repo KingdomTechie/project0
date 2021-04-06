@@ -71,7 +71,7 @@ button {
     justify-content: space-around;
     align-items: center;
     max-height: 179px;
-    margin-top: 150px;
+    margin-top: 100px;
 
 }
 
@@ -101,6 +101,7 @@ span {
     position:absolute;
 }
 
-button .meters {
-    margin-top: 150px
+.meters button {
+    margin-top: -40px;
+    margin-left: -332px;
 }

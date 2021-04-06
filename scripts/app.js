@@ -57,7 +57,7 @@ const tomagatchi = {
         $("input").fadeOut(100);
         $("#petsubmit").fadeOut(100);
         $profileStats = $(".stats");
-        $($profileStats).prepend(`<p>Name: ${$name}</p><p>Age: ${tomagatchi.age}</p><p>Hungry: ${tomagatchi.hungerScale}</p><p>Energy: ${tomagatchi.energyScale}</p><p>Happy: ${tomagatchi.happinessScale}</p>`);
+        $($profileStats).prepend(`<p>Name: ${$name}</p><p class="agescale">Age: ${tomagatchi.age}</p><p class="hungerscale">Hungry: ${tomagatchi.hungerScale}</p><p class="energyscale">Energy: ${tomagatchi.energyScale}</p><p class="happyscale">Happy: ${tomagatchi.happinessScale}</p>`);
         $hungryButton = $("<button>HUNGRY!</button>");
         $energyButton = $("<button>Need Energy!</button>");
         $happyButton = $("<button>Play with me!</button>");
@@ -68,7 +68,18 @@ const tomagatchi = {
 
     ageCounter () {
         console.log("this is the age counter function");
-    }
+
+    },
+// Modified from Dalton's reduceTime method in PokeASquare
+    reduceHunger(){
+        tomagatchi.hungerScale--;
+        $("#timer").text(`timer: ${tomagatchi.hungerScale}s`);
+        if(tomagatchi.time <= 0){
+          clearInterval(tomagatchi.timer);
+          tomagatchi.round++;
+        }
+      },
+
 
 
 

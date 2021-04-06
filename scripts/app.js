@@ -65,11 +65,14 @@ const tomagatchi = {
         $(".energy").after($energyButton);
         $(".happy").after($happyButton);
         tomagatchi.startTimer();
+        tomagatchi.ageTimer();
     },
-
+    ageTimer(){
+        tomagatchi.age = setInterval(tomagatchi.ageCounter, 1000)
+    },
     ageCounter () {
-        console.log("this is the age counter function");
-
+        tomagatchi.age++;
+        $(".agescale").text(`Age: ${tomagatchi.age}`)
     },
 // Modified from Dalton's reduceTime method in PokeASquare
 
@@ -100,6 +103,7 @@ const tomagatchi = {
 }
 
 $("#petsubmit").on("click", tomagatchi.petName)
+$(".hungry").on("click", )
 
 
 

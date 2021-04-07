@@ -49,12 +49,6 @@ const tomagatchi = {
     energyScale: 10,
     happinessScale: 10,
 
-    changeMeterImage (){
-        $hungrySadImage = $("<img id='hungrysadimage' src='Saddragon.jpeg'></img>")
-        if (tomagatchi.hungerScale <= 5) {
-            $(".hungry").append($hungrySadImage);
-        }
-    },
     
     petName () {
         $age = $("<input class='age' type='text' placeholder='Age of your pet?'?></input>")
@@ -75,11 +69,15 @@ const tomagatchi = {
         <p class="happyscale">Happy: ${tomagatchi.happinessScale}</p>`
         );
 
-        // This logic changes the photo when the meters pass a certain threshold
+        // Images created for meters
         
         $hungryHappyImage = $("<img id='happydragonimage' src='eatingdragon.jpg'></img>");
         $hungrySadImage = $("<img id='saddragonimage' src='Saddragon.jpeg'></img>")
         $(".hungry").append($hungryHappyImage);
+        $energyHappyImage = $("<img id='energyhappyimage' src='energyDragon.jpeg'></img>")
+        $(".energy").append($energyHappyImage);
+        $happyHappyImage = $("<img id='happyhappyImage' src='playfuldragon.png'></img>");
+        $(".happy").append($happyHappyImage);
 
 
         // This section creates the meter buttons
@@ -183,6 +181,13 @@ const tomagatchi = {
             $("#profilepicID").addClass("adultdragon");
             $("section.profilepic").addClass("adultdragon")
             $("#profilepicID").attr("src", "adultdragon.jpeg");
+        }
+    },
+
+    changeMeterImage (){
+        $hungrySadImage = $("<img id='hungrysadimage' src='Saddragon.jpeg'></img>")
+        if (tomagatchi.hungerScale <= 5) {
+            $(".hungry").append($hungrySadImage);
         }
     },
 

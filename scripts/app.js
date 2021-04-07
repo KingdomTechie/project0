@@ -71,6 +71,15 @@ const tomagatchi = {
     ageTimer(){
         tomagatchi.age = setInterval(tomagatchi.ageCounter, 1000)
     },
+
+    startEnergyTimer() {
+        console.log("Energy Timer");
+  },
+
+    startHappyTimer() {
+
+    },
+
     ageCounter () {
         
         tomagatchi.age++;
@@ -84,7 +93,6 @@ const tomagatchi = {
             $("section.profilepic").addClass("adultdragon")
             $("img").attr("src", "adultdragon.jpeg");
             
-
         }
     },
 // Modified from Dalton's reduceTime method in PokeASquare
@@ -94,22 +102,17 @@ const tomagatchi = {
         tomagatchi.hungerScale = setInterval(tomagatchi.reduceHunger, 1000);
   },
 
-    startEnergyTimer() {
-        console.log("Energy Timer");
-  },
-
-    startHappyTimer() {
-
-    },
+    
 
 
     reduceHunger(){
         tomagatchi.hungerScale--;
-        tomagatchi.energyScale--;
-        tomagatchi.happinessScale--;
+        console.log(tomagatchi.hungerScale);
+        // tomagatchi.energyScale--;
+        // tomagatchi.happinessScale--;
         $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
-        $(".energyscale").text(`Energy: ${tomagatchi.hungerScale}`);
-        $(".happyscale").text(`Happy: ${tomagatchi.hungerScale}`);
+        // $(".energyscale").text(`Energy: ${tomagatchi.hungerScale}`);
+        // $(".happyscale").text(`Happy: ${tomagatchi.hungerScale}`);
         if(tomagatchi.hungerScale <= 0){
           clearInterval(tomagatchi.hungerScale);
         }

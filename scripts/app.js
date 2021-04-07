@@ -49,6 +49,13 @@ const tomagatchi = {
     energyScale: 10,
     happinessScale: 10,
 
+    changeMeterImage (){
+        $hungrySadImage = $("<img id='hungrysadimage' src='Saddragon.jpeg'></img>")
+        if (tomagatchi.hungerScale <= 5) {
+            $(".hungry").append($hungrySadImage);
+        }
+    },
+    
     petName () {
         $age = $("<input class='age' type='text' placeholder='Age of your pet?'?></input>")
         $name = $("#petname").val();
@@ -96,12 +103,8 @@ const tomagatchi = {
     },
         // Logic that increases meters when button is clicked
     feedMe () {
-        $hungrySadImage = $("<img id='hungrysadimage' src='Saddragon.jpeg'></img>")
         console.log("Feed me!");
         tomagatchi.hungerScale = tomagatchi.hungerScale + 1;
-        if (tomagatchi.hungerScale < 5) {
-            $(".hungry").append($hungrySadImage);
-        }
     },
 
     energizeMe () {

@@ -85,15 +85,22 @@ const tomagatchi = {
         // This section starts the timers
         tomagatchi.startTimer();
         tomagatchi.ageTimer();
+        tomagatchi.startEnergyTimer();
 
-        // This on click event is stored within petName to trigger the feedMe button
+        // This on click event is stored within petName to trigger the meter buttons
         $("#hungrybutton").on("click", tomagatchi.feedMe);
+        $("#energybutton").on("click", tomagatchi.energizeMe);
     },
-
+        // Logic that increases meters when button is clicked
     feedMe () {
         console.log("Feed me!");
         tomagatchi.hungerScale = tomagatchi.hungerScale + 1;
       //   $("p.hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`)
+    },
+
+    energizeMe () {
+        console.log("Energize me");
+        tomagatchi.energyScale = tomagatchi.energyScale + 1;
     },
 
 
@@ -109,6 +116,14 @@ const tomagatchi = {
 
     startEnergyTimer() {
         console.log("Energy Timer");
+        energyTimer = setInterval(tomagatchi.reduceMeters, 1000);
+  },
+
+  // Modified from Dalton's reduceTime method in PokeASquare
+
+  startTimer(){
+    // setInterval(function to run, time between each run)
+        hungerTimer = setInterval(tomagatchi.reduceMeters, 1000);
   },
 
     ageCounter () {
@@ -124,18 +139,14 @@ const tomagatchi = {
             $("img").attr("src", "adultdragon.jpeg");
         }
     },
-// Modified from Dalton's reduceTime method in PokeASquare
 
-    startTimer(){
-    // setInterval(function to run, time between each run)
-        hungerTimer = setInterval(tomagatchi.reduceMeters, 1000);
-  },
 
     reduceMeters(){
-        if (tomagatchi.hungerScale > 0) {
+        if (tomagatchi.hungerScale > 0 || tomagatchi.energyScale > 0) {
             tomagatchi.hungerScale--;
             console.log(`Tommy is getting hungry ${tomagatchi.hungerScale}`);
-        // tomagatchi.energyScale--;
+            tomagatchi.energyScale--;
+            console.log(`Tommy needs more energy ${tomagatchi.energyScale}`)
         // tomagatchi.happinessScale--;
         $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
         // $(".energyscale").text(`Energy: ${tomagatchi.hungerScale}`);

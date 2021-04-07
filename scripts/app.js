@@ -192,13 +192,15 @@ const tomagatchi = {
     },
 
       // Logic to trigger when any of the meters deplete to 0
-    // petDeath () {
-    //     $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
-    //     $(".meters").fadeOut(400);
-    //     $("h1").text(`Poor ${tomagatchi.name} has died :(`)
-    //     $("body").append($deathBar)
-    //     console.log("This will create the end of the game");
-    // },
+    petDeath () {
+        $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
+        $(".meters").fadeOut(400);
+        // $("h1")addClass("petdeathdisplay");
+
+        $("h1").text(`Poor ${tomagatchi.name} has died :(`)
+        $("body").append($deathBar)
+        console.log("This will create the end of the game");
+    },
       
   
 

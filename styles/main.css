@@ -130,7 +130,6 @@ section.profilepic.adultdragon {
 
 .happy {
     border-style: solid;
-    background-color: yellow;
     display: inline-block;
     width: 31vh;
     height: 33vh;
@@ -155,5 +154,6 @@ span {
     background-color: red;
     color: white;
     text-align: center;
-    font-size: 40px
+    font-size: 40px;
+    margin-top: 68px;
 }

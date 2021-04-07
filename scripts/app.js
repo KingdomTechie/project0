@@ -71,12 +71,12 @@ const tomagatchi = {
 
         // Images created for meters
         
-        $hungryHappyImage = $("<img id='happydragonimage' src='eatingdragon.jpg'></img>");
-        $hungrySadImage = $("<img id='saddragonimage' src='Saddragon.jpeg'></img>")
+        $hungryHappyImage = $("<img id='happydragonimage' src='images/eatingdragon.jpg'></img>");
+        $hungrySadImage = $("<img id='saddragonimage' src='images/Saddragon.jpeg'></img>")
         $(".hungry").append($hungryHappyImage);
-        $energyHappyImage = $("<img id='energyhappyimage' src='energyDragon.jpeg'></img>")
+        $energyHappyImage = $("<img id='energyhappyimage' src='images/energyDragon.jpeg'></img>")
         $(".energy").append($energyHappyImage);
-        $happyHappyImage = $("<img id='happyhappyImage' src='playfuldragon.png'></img>");
+        $happyHappyImage = $("<img id='happyhappyImage' src='images/playfuldragon.png'></img>");
         $(".happy").append($happyHappyImage);
 
 
@@ -175,17 +175,17 @@ const tomagatchi = {
         tomagatchi.age++;
         $(".agescale").text(`Age: ${tomagatchi.age}`)
         if(tomagatchi.age >= 18) {
-            $("#profilepicID").attr("src", "adolescentdragon.jpeg");
+            $("#profilepicID").attr("src", "images/adolescentdragon.jpeg");
         }
         if(tomagatchi.age >= 30) {
             $("#profilepicID").addClass("adultdragon");
             $("section.profilepic").addClass("adultdragon")
-            $("#profilepicID").attr("src", "adultdragon.jpeg");
+            $("#profilepicID").attr("src", "images/adultdragon.jpeg");
         }
     },
 
     changeMeterImage (){
-        $hungrySadImage = $("<img id='hungrysadimage' src='Saddragon.jpeg'></img>")
+        $hungrySadImage = $("<img id='hungrysadimage' src='images/Saddragon.jpeg'></img>")
         if (tomagatchi.hungerScale <= 5) {
             $(".hungry").append($hungrySadImage);
         }

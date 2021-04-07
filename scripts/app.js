@@ -103,15 +103,19 @@ const tomagatchi = {
         tomagatchi.energyScale = tomagatchi.energyScale + 1;
     },
 
-
-        // Logic to trigger when any of the meters deplete to 0
-    petDeath () {
-        console.log("This will create the end of the game");
+    makeHappy () {
+        console.log("Play with me!");
+        tomagatchi.happinessScale = tomagatchi.happinessScale + 1;
     },
 
     // Logic that governs the timers
     ageTimer(){
         tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 200)
+    },
+
+    startHappyTimer () {
+        console.log("Happy Timer");
+        happyTimer = setInterval(tomagatchi.reduceMeters, 1000);
     },
 
     startEnergyTimer() {
@@ -142,22 +146,31 @@ const tomagatchi = {
 
 
     reduceMeters(){
-        if (tomagatchi.hungerScale > 0 || tomagatchi.energyScale > 0) {
+        if (tomagatchi.hungerScale > 0 || tomagatchi.energyScale > 0 || tomagatchi.happinessScale > 0){
             tomagatchi.hungerScale--;
             console.log(`Tommy is getting hungry ${tomagatchi.hungerScale}`);
             tomagatchi.energyScale--;
             console.log(`Tommy needs more energy ${tomagatchi.energyScale}`)
-        // tomagatchi.happinessScale--;
-        $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
-        // $(".energyscale").text(`Energy: ${tomagatchi.hungerScale}`);
-        // $(".happyscale").text(`Happy: ${tomagatchi.hungerScale}`);
-        if(tomagatchi.hungerScale <= 0){
-          clearInterval(tomagatchi.hungerScale);
-          console.log(`${tomagatchi.name} has died :(`)
-        }
+            tomagatchi.happinessScale--;
+            $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
+            $(".energyscale").text(`Hungry: ${tomagatchi.energyScale}`);
+            $(".happyscale").text(`Happy: ${tomagatchi.hungerScale}`);
+            
+            if(tomagatchi.hungerScale <= 0){
+                clearInterval(tomagatchi.hungerScale);
+                console.log(`${tomagatchi.name} has died :(`)
+            }
+
+            if(tomagatchi.energyScale <= 0) {
+                console.log("Your Tommy has died, he was too weak");
+            }
         }
       },
 
+      // Logic to trigger when any of the meters deplete to 0
+    petDeath () {
+        console.log("This will create the end of the game");
+    },
       
   
       

@@ -112,7 +112,7 @@ const tomagatchi = {
 
     // Logic that governs the timers
     ageTimer(){
-        tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 1100)
+        tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 300)
     },
 
     // Modified from Dalton's reduceTime method in PokeASquare
@@ -182,7 +182,8 @@ const tomagatchi = {
       // Logic to trigger when any of the meters deplete to 0
     petDeath () {
         $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
-        $()
+        $(".meters").fadeOut(400);
+        $("h1").text(`Poor ${tomagatchi.name} has died :(`)
         $("body").append($deathBar)
         console.log("This will create the end of the game");
     },

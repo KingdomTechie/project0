@@ -96,9 +96,12 @@ const tomagatchi = {
     },
         // Logic that increases meters when button is clicked
     feedMe () {
+        $hungrySadImage = $("<img id='hungrysadimage' src='Saddragon.jpeg'></img>")
         console.log("Feed me!");
         tomagatchi.hungerScale = tomagatchi.hungerScale + 1;
-      //   $("p.hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`)
+        if (tomagatchi.hungerScale < 5) {
+            $(".hungry").append($hungrySadImage);
+        }
     },
 
     energizeMe () {

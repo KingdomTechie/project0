@@ -9,8 +9,12 @@
 
 h1 {
     font-family: sans-serif;
-
+    margin-bottom: -45px;
 } 
+
+input {
+    margin-top: 60px;
+}
 
 div.petname {
     margin-top: 6%;
@@ -129,7 +133,7 @@ span {
 }
 
 .meters button {
-    margin-top: -40px;
+    margin-top: -43px;
     margin-left: -332px;
 }
 

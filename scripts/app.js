@@ -58,14 +58,15 @@ const tomagatchi = {
         $("#petsubmit").fadeOut(100);
         $profileStats = $(".stats");
         $($profileStats).prepend(`<p>Name: ${$name}</p><p class="agescale">Age: ${tomagatchi.age}</p><p class="hungerscale">Hungry: ${tomagatchi.hungerScale}</p><p class="energyscale">Energy: ${tomagatchi.energyScale}</p><p class="happyscale">Happy: ${tomagatchi.happinessScale}</p>`);
-        $hungryButton = $("<button>HUNGRY!</button>");
-        $energyButton = $("<button>Need Energy!</button>");
-        $happyButton = $("<button>Play with me!</button>");
+        $hungryButton = $("<button id='hungrybutton'>HUNGRY!</button>");
+        $energyButton = $("<button id='energybutton'>Need Energy!</button>");
+        $happyButton = $("<button id= 'happybutton'>Play with me!</button>");
         $(".hungry").after($hungryButton);
         $(".energy").after($energyButton);
         $(".happy").after($happyButton);
         tomagatchi.startTimer();
         tomagatchi.ageTimer();
+        $("#hungrybutton").on("click", tomagatchi.feedMe);
     },
     ageTimer(){
         tomagatchi.age = setInterval(tomagatchi.ageCounter, 1000)
@@ -92,6 +93,16 @@ const tomagatchi = {
     // setInterval(function to run, time between each run)
         tomagatchi.hungerScale = setInterval(tomagatchi.reduceHunger, 1000);
   },
+
+    startEnergyTimer() {
+        console.log("Energy Timer");
+  },
+
+    startHappyTimer() {
+
+    },
+
+
     reduceHunger(){
         tomagatchi.hungerScale--;
         tomagatchi.energyScale--;
@@ -106,14 +117,15 @@ const tomagatchi = {
 
       feedMe () {
           console.log("Feed me!");
-          tomagatchi.hungerScale + 1
+          tomagatchi.hungerScale = tomagatchi.hungerScale + 1;
+        //   $("p.hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`)
       }
 
 
 }
 
 $("#petsubmit").on("click", tomagatchi.petName);
-$(".hungry").on("click", tomagatchi.feedMe);
+
 
 
 

@@ -170,23 +170,23 @@ const tomagatchi = {
         tomagatchi.age++;
         $(".agescale").text(`Age: ${tomagatchi.age}`)
         if(tomagatchi.age >= 18) {
-            $("img").attr("src", "adolescentdragon.jpeg");
+            $("#profilepicID").attr("src", "adolescentdragon.jpeg");
         }
         if(tomagatchi.age >= 30) {
-            $("img").addClass("adultdragon");
+            $("#profilepicID").addClass("adultdragon");
             $("section.profilepic").addClass("adultdragon")
-            $("img").attr("src", "adultdragon.jpeg");
+            $("#profilepicID").attr("src", "adultdragon.jpeg");
         }
     },
 
       // Logic to trigger when any of the meters deplete to 0
-    petDeath () {
-        $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
-        $(".meters").fadeOut(400);
-        $("h1").text(`Poor ${tomagatchi.name} has died :(`)
-        $("body").append($deathBar)
-        console.log("This will create the end of the game");
-    },
+    // petDeath () {
+    //     $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
+    //     $(".meters").fadeOut(400);
+    //     $("h1").text(`Poor ${tomagatchi.name} has died :(`)
+    //     $("body").append($deathBar)
+    //     console.log("This will create the end of the game");
+    // },
       
   
 

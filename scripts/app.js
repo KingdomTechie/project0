@@ -68,8 +68,15 @@ const tomagatchi = {
         <p class="happyscale">Happy: ${tomagatchi.happinessScale}</p>`
         );
 
-        $hungryHappyImage = $("<img id='happydragonimage' src='happydragon.jpeg'></img>");
+        
+        $hungryHappyImage = $("<img id='happydragonimage' src='eatingdragon.png'></img>");
+        $hungrySadImage = $("<img id='saddragonimage' src='Saddragon.jpeg'></img>")
         $(".hungry").append($hungryHappyImage);
+
+        if(tomagatchi.hungerScale < 5) {
+            $(".hungry").empty();
+            $(".hungry").append($hungrySadImage);
+        }
 
         
         $hungryButton = $("<button id='hungrybutton'>HUNGRY!</button>");
@@ -83,8 +90,12 @@ const tomagatchi = {
         $("#hungrybutton").on("click", tomagatchi.feedMe);
     },
 
+    petDeath () {
+        console.log("This will create the end of the game");
+    },
+
     ageTimer(){
-        tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 5000)
+        tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 900)
     },
 
     startEnergyTimer() {
@@ -118,11 +129,9 @@ const tomagatchi = {
   },
 
     
-
-
     reduceMeters(){
         if (tomagatchi.hungerScale > 0) {
-            tomagatchi.hungerScale--;
+            tomagatchi.hungerScale - 5;
             console.log(`Tommy is getting hungry ${tomagatchi.hungerScale}`);
         // tomagatchi.energyScale--;
         // tomagatchi.happinessScale--;
@@ -140,10 +149,11 @@ const tomagatchi = {
           console.log("Feed me!");
           tomagatchi.hungerScale = tomagatchi.hungerScale + 1;
         //   $("p.hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`)
+      },
+  
+      
       }
 
-
-}
 
 $("#petsubmit").on("click", tomagatchi.petName);
 

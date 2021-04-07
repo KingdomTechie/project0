@@ -104,18 +104,16 @@ const tomagatchi = {
         }
       },
 
-
-
-
-    // petAge () {
-    //     $ageButton = $("<button class='agebutton' )
-    // }
+      feedMe () {
+          console.log("Feed me!");
+          tomagatchi.hungerScale + 1
+      }
 
 
 }
 
-$("#petsubmit").on("click", tomagatchi.petName)
-$(".hungry").on("click", )
+$("#petsubmit").on("click", tomagatchi.petName);
+$(".hungry").on("click", tomagatchi.feedMe);
 
 
 

@@ -58,7 +58,7 @@ const tomagatchi = {
 
         $("input").fadeOut(100);
         $("#petsubmit").fadeOut(100);
-
+        // This section adds the stats section that contains timer information
         $profileStats = $(".stats");
         $($profileStats).prepend(`
         <p>Name: ${$name}</p>
@@ -68,43 +68,48 @@ const tomagatchi = {
         <p class="happyscale">Happy: ${tomagatchi.happinessScale}</p>`
         );
 
-        
+        // This logic changes the photo when the meters pass a certain threshold
         $hungryHappyImage = $("<img id='happydragonimage' src='eatingdragon.png'></img>");
         $hungrySadImage = $("<img id='saddragonimage' src='Saddragon.jpeg'></img>")
         $(".hungry").append($hungryHappyImage);
 
-        if(tomagatchi.hungerScale < 5) {
-            $(".hungry").empty();
-            $(".hungry").append($hungrySadImage);
-        }
 
-        
+        // This section creates the meter buttons
         $hungryButton = $("<button id='hungrybutton'>HUNGRY!</button>");
         $energyButton = $("<button id='energybutton'>Need Energy!</button>");
         $happyButton = $("<button id= 'happybutton'>Play with me!</button>");
         $(".hungry").after($hungryButton);
         $(".energy").after($energyButton);
         $(".happy").after($happyButton);
+
+        // This section starts the timers
         tomagatchi.startTimer();
         tomagatchi.ageTimer();
+
+        // This on click event is stored within petName to trigger the feedMe button
         $("#hungrybutton").on("click", tomagatchi.feedMe);
     },
 
+    feedMe () {
+        console.log("Feed me!");
+        tomagatchi.hungerScale = tomagatchi.hungerScale + 1;
+      //   $("p.hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`)
+    },
+
+
+        // Logic to trigger when any of the meters deplete to 0
     petDeath () {
         console.log("This will create the end of the game");
     },
 
+    // Logic that governs the timers
     ageTimer(){
-        tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 900)
+        tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 200)
     },
 
     startEnergyTimer() {
         console.log("Energy Timer");
   },
-
-    startHappyTimer() {
-
-    },
 
     ageCounter () {
         
@@ -114,11 +119,9 @@ const tomagatchi = {
             $("img").attr("src", "adolescentdragon.jpeg");
         }
         if(tomagatchi.age >= 30) {
-            // $adultDragon.css()
             $("img").addClass("adultdragon");
             $("section.profilepic").addClass("adultdragon")
             $("img").attr("src", "adultdragon.jpeg");
-            
         }
     },
 // Modified from Dalton's reduceTime method in PokeASquare
@@ -128,10 +131,9 @@ const tomagatchi = {
         hungerTimer = setInterval(tomagatchi.reduceMeters, 1000);
   },
 
-    
     reduceMeters(){
         if (tomagatchi.hungerScale > 0) {
-            tomagatchi.hungerScale - 5;
+            tomagatchi.hungerScale--;
             console.log(`Tommy is getting hungry ${tomagatchi.hungerScale}`);
         // tomagatchi.energyScale--;
         // tomagatchi.happinessScale--;
@@ -145,11 +147,7 @@ const tomagatchi = {
         }
       },
 
-      feedMe () {
-          console.log("Feed me!");
-          tomagatchi.hungerScale = tomagatchi.hungerScale + 1;
-        //   $("p.hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`)
-      },
+      
   
       
       }

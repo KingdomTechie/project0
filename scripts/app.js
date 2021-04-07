@@ -83,13 +83,15 @@ const tomagatchi = {
         $(".happy").after($happyButton);
 
         // This section starts the timers
-        tomagatchi.startTimer();
+        tomagatchi.startHungryTimer();
         tomagatchi.ageTimer();
         tomagatchi.startEnergyTimer();
+        tomagatchi.startHappyTimer();
 
         // This on click event is stored within petName to trigger the meter buttons
         $("#hungrybutton").on("click", tomagatchi.feedMe);
         $("#energybutton").on("click", tomagatchi.energizeMe);
+        $("#happybutton").on("click", tomagatchi.makeHappy);
     },
         // Logic that increases meters when button is clicked
     feedMe () {
@@ -110,26 +112,59 @@ const tomagatchi = {
 
     // Logic that governs the timers
     ageTimer(){
-        tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 200)
+        tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 1100)
     },
 
+    // Modified from Dalton's reduceTime method in PokeASquare
+
+    startHungryTimer(){
+    // setInterval(function to run, time between each run)
+        hungerTimer = setInterval(tomagatchi.reduceMeters, 1000);
+  },
     startHappyTimer () {
         console.log("Happy Timer");
-        happyTimer = setInterval(tomagatchi.reduceMeters, 1000);
+        happyTimer = setInterval(tomagatchi.reduceMeters, 13000);
     },
 
     startEnergyTimer() {
         console.log("Energy Timer");
-        energyTimer = setInterval(tomagatchi.reduceMeters, 1000);
+        energyTimer = setInterval(tomagatchi.reduceMeters, 15000);
   },
 
-  // Modified from Dalton's reduceTime method in PokeASquare
+  reduceMeters(){
+    if (tomagatchi.hungerScale > 0 || tomagatchi.energyScale > 0 || tomagatchi.happinessScale > 0){
+        tomagatchi.hungerScale--;
+        tomagatchi.energyScale--;
+        tomagatchi.happinessScale--;
+        $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
+        $(".energyscale").text(`Energy: ${tomagatchi.energyScale}`);
+        $(".happyscale").text(`Happy: ${tomagatchi.hungerScale}`);
 
-  startTimer(){
-    // setInterval(function to run, time between each run)
-        hungerTimer = setInterval(tomagatchi.reduceMeters, 1000);
+        if(tomagatchi.hungerScale <= 0){
+            clearInterval(tomagatchi.hungerScale);
+            console.log(`${tomagatchi.name} has died :(`)
+            tomagatchi.petDeath();
+            return
+        }
+
+        if(tomagatchi.energyScale <= 0) {
+            clearInterval(tomagatchi.energyScale);
+            console.log("Your Tommy has died, he was too weak");
+            tomagatchi.petDeath();
+            return
+        }
+
+        if (tomagatchi.happinessScale <= 0) {
+            clearInterval(tomagatchi.happinessScale);
+            console.log("Your Tommy died of saddness");
+            tomagatchi.petDeath();
+            return
+
+        }
+    }
   },
 
+  
     ageCounter () {
         
         tomagatchi.age++;
@@ -144,37 +179,17 @@ const tomagatchi = {
         }
     },
 
-
-    reduceMeters(){
-        if (tomagatchi.hungerScale > 0 || tomagatchi.energyScale > 0 || tomagatchi.happinessScale > 0){
-            tomagatchi.hungerScale--;
-            console.log(`Tommy is getting hungry ${tomagatchi.hungerScale}`);
-            tomagatchi.energyScale--;
-            console.log(`Tommy needs more energy ${tomagatchi.energyScale}`)
-            tomagatchi.happinessScale--;
-            $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
-            $(".energyscale").text(`Hungry: ${tomagatchi.energyScale}`);
-            $(".happyscale").text(`Happy: ${tomagatchi.hungerScale}`);
-            
-            if(tomagatchi.hungerScale <= 0){
-                clearInterval(tomagatchi.hungerScale);
-                console.log(`${tomagatchi.name} has died :(`)
-            }
-
-            if(tomagatchi.energyScale <= 0) {
-                console.log("Your Tommy has died, he was too weak");
-            }
-        }
-      },
-
       // Logic to trigger when any of the meters deplete to 0
     petDeath () {
+        $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
+        $()
+        $("body").append($deathBar)
         console.log("This will create the end of the game");
     },
       
   
-      
-      }
+
+}
 
 
 $("#petsubmit").on("click", tomagatchi.petName);

@@ -98,6 +98,8 @@ const tomagatchi = {
         $("#hungrybutton").on("click", tomagatchi.feedMe);
         $("#energybutton").on("click", tomagatchi.energizeMe);
         $("#happybutton").on("click", tomagatchi.makeHappy);
+
+        $(".petcard").slideToggle(2000);
     },
         // Logic that increases meters when button is clicked
     feedMe () {
@@ -183,7 +185,7 @@ const tomagatchi = {
             $("#profilepicID").attr("src", "images/adultdragon.jpeg");
         }
     },
-
+    // NOTE - still need to work through this logic
     changeMeterImage (){
         $hungrySadImage = $("<img id='hungrysadimage' src='images/Saddragon.jpeg'></img>")
         if (tomagatchi.hungerScale <= 5) {

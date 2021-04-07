@@ -69,7 +69,8 @@ const tomagatchi = {
         );
 
         // This logic changes the photo when the meters pass a certain threshold
-        $hungryHappyImage = $("<img id='happydragonimage' src='eatingdragon.png'></img>");
+        
+        $hungryHappyImage = $("<img id='happydragonimage' src='eatingdragon.jpg'></img>");
         $hungrySadImage = $("<img id='saddragonimage' src='Saddragon.jpeg'></img>")
         $(".hungry").append($hungryHappyImage);
 

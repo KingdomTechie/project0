@@ -75,7 +75,7 @@ const tomagatchi = {
         <p class="happyscale">Happy: ${tomagatchi.happinessScale}</p>`
         );
 
-        // Images created for meters
+        // Images created for meters.  Not currently being used in run time.
         $hungryHappyImage = $("<img id='happydragonimage' src='images/pokedragoneating.png'></img>");
         $hungrySadImage = $("<img id='saddragonimage' src='images/Saddragon.jpeg'></img>")
         $(".hungry").append($hungryHappyImage);
@@ -84,14 +84,6 @@ const tomagatchi = {
         $happyHappyImage = $("<img id='happyhappyImage' src='images/playfuldragon.png'></img>");
         $(".happy").append($happyHappyImage);
 
-
-        // This section creates the meter buttons
-        $hungryButton = $("<button id='hungrybutton'>HUNGRY!</button>");
-        $energyButton = $("<button id='energybutton'>Need Energy!</button>");
-        $happyButton = $("<button id= 'happybutton'>Play with me!</button>");
-        $(".hungry").after($hungryButton);
-        $(".energy").after($energyButton);
-        $(".happy").after($happyButton);
 
         // This section starts the timers
         tomagatchi.startHungryTimer();
@@ -107,29 +99,29 @@ const tomagatchi = {
 
     },
 
-
-
-    
         // Logic that increases meters when button is clicked
     feedMe () {
         console.log("Feed me!");
-        if(tomagatchi.hungerScale === 10) {
-            tomagatchi.hungerScale = 10;
-        }
+        // if(tomagatchi.hungerScale >= 10) {
+        //     tomagatchi.hungerScale = 10;
+        // }
         tomagatchi.hungerScale = tomagatchi.hungerScale + 1;
         
     },
 
     energizeMe () {
         console.log("Energize me");
-        if(tomagatchi.energyScale === 10) {
-            tomagatchi.energyScale = 10;
-        }
+        // if(tomagatchi.energyScale >= 10) {
+        //     tomagatchi.energyScale = 10;
+        // }
         tomagatchi.energyScale = tomagatchi.energyScale + 1;
     },
 
     makeHappy () {
         console.log("Play with me!");
+        // if(tomagatchi.happinessScale >= 10) {
+        //     tomagatchi.happinessScale = 10;
+        // }
         tomagatchi.happinessScale = tomagatchi.happinessScale + 1;
     },
 
@@ -137,10 +129,10 @@ const tomagatchi = {
     ageTimer(){
         tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 300)
     },
-
+    // FIXME - age counter hard stops at 33 years old.
     ageCounter () {
-        
         tomagatchi.age++;
+        console.log(tomagatchi.age);
         $(".agescale").text(`Age: ${tomagatchi.age}`)
         if(tomagatchi.age >= 18) {
             $("#profilepicID").attr("src", "images/teenagedragon.png");
@@ -209,16 +201,6 @@ const tomagatchi = {
         }
     },
 
-
-    
-    // NOTE - still need to work through this logic
-    changeMeterImage (){
-        $hungrySadImage = $("<img id='hungrysadimage' src='images/Saddragon.jpeg'></img>")
-        if (tomagatchi.hungerScale <= 5) {
-            $(".hungry").append($hungrySadImage);
-        }
-    },
-
       // Logic to trigger when any of the meters deplete to 0
     petDeath () {
         $("body").css("background-image", "url(https://c4.wallpaperflare.com/wallpaper/601/475/772/grave-yard-green-trees-and-web-wallpaper-preview.jpg)")
@@ -232,12 +214,30 @@ const tomagatchi = {
         return
     },
       
-  
-
 }
 
 
 $("#petsubmit").on("click", tomagatchi.petName);
+
+
+
+// NOTE - ICE BOX - This section creates the meter buttons
+$hungryButton = $("<button id='hungrybutton'>HUNGRY!</button>");
+$energyButton = $("<button id='energybutton'>Need Energy!</button>");
+$happyButton = $("<button id= 'happybutton'>Play with me!</button>");
+$(".hungry").after($hungryButton);
+$(".energy").after($energyButton);
+$(".happy").after($happyButton);
+
+// NOTE - still need to work through this logic - ICE BOX
+// changeMeterImage (){
+//     $hungrySadImage = $("<img id='hungrysadimage' src='images/Saddragon.jpeg'></img>")
+//     if (tomagatchi.hungerScale <= 5) {
+//         $(".hungry").append($hungrySadImage);
+//     }
+// },
+
+
 
 
 
@@ -278,4 +278,5 @@ $("#petsubmit").on("click", tomagatchi.petName);
 //         }
 //     }
 //   },
+
 

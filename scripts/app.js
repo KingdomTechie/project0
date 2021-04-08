@@ -62,7 +62,7 @@ const tomagatchi = {
         $("#petsubmit").fadeOut(100);
         $("h1").css("animation", "5s slideOut")
         $(".petcard").css("animation", "3s linear 1s infinite alternate slideRight");
-        
+
 
 
 
@@ -77,10 +77,10 @@ const tomagatchi = {
         );
 
         // Images created for meters
-        $hungryHappyImage = $("<img id='happydragonimage' src='images/eatingdragon.jpg'></img>");
+        $hungryHappyImage = $("<img id='happydragonimage' src='images/dragoneatingcookie.svg'></img>");
         $hungrySadImage = $("<img id='saddragonimage' src='images/Saddragon.jpeg'></img>")
         $(".hungry").append($hungryHappyImage);
-        $energyHappyImage = $("<img id='energyhappyimage' src='images/energyDragon.jpeg'></img>")
+        $energyHappyImage = $("<img id='energyhappyimage' src='images/Spyrostrongdragon.png'></img>")
         $(".energy").append($energyHappyImage);
         $happyHappyImage = $("<img id='happyhappyImage' src='images/playfuldragon.png'></img>");
         $(".happy").append($happyHappyImage);

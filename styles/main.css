@@ -30,9 +30,11 @@ button {
     margin-top: 10px;
 }
 
+/* NOTE - delete border and background colors from meter image divs */
 .hungry {
-    border-style: solid; 
-    background-color: blue;
+
+    /* border-style: solid;  */
+    /* background-color: blue; */
     display: inline-block;
     width: 31vh;
     height: 24vh;
@@ -155,7 +157,7 @@ section.profilepic.adultdragon {
 
 .energy {
     border-style: solid;
-    background-color: red;
+    /* background-color: red; */
     display: inline-block;
     width: 28vh;
     height: 31vh;

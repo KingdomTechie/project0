@@ -113,7 +113,7 @@ const tomagatchi = {
         // Logic that increases meters when button is clicked
     feedMe () {
         console.log("Feed me!");
-        if(tomagatchi.hungerScale = 10) {
+        if(tomagatchi.hungerScale === 10) {
             tomagatchi.hungerScale = 10;
         }
         tomagatchi.hungerScale = tomagatchi.hungerScale + 1;
@@ -122,7 +122,7 @@ const tomagatchi = {
 
     energizeMe () {
         console.log("Energize me");
-        if(tomagatchi.energyScale = 10) {
+        if(tomagatchi.energyScale === 10) {
             tomagatchi.energyScale = 10;
         }
         tomagatchi.energyScale = tomagatchi.energyScale + 1;
@@ -135,7 +135,7 @@ const tomagatchi = {
 
     // Logic that governs the timers
     ageTimer(){
-        tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 1000)
+        tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 300)
     },
 
     ageCounter () {

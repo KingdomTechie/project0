@@ -87,7 +87,7 @@ const tomagatchi = {
 
         // This section starts the timers
         tomagatchi.startHungryTimer();
-        tomagatchi.ageTimer();
+        tomagatchi.startAgeTimer();
         tomagatchi.startEnergyTimer();
         tomagatchi.startHappyTimer();
 
@@ -96,34 +96,6 @@ const tomagatchi = {
     $("#energybutton").on("click", tomagatchi.energizeMe);
     $("#happybutton").on("click", tomagatchi.makeHappy);
 
-
-    },
-
-    startHungryTimer(){
-        // setInterval(function to run, time between each run)
-            tomagatchi.hungerTimer = setInterval(tomagatchi.reduceHungerMeter, 1000);
-      },
-    
-    feedMe () {
-        console.log("Feed me!");
-        if(tomagatchi.hungerScale >= 10) {
-            tomagatchi.hungerScale = 10;
-        }
-        tomagatchi.hungerScale = tomagatchi.hungerScale + 1;
-    },
-
-    reduceHungerMeter () {
-        tomagatchi.hungerScale--;
-        $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
-        if(tomagatchi.hungerScale <= 0){
-            clearInterval(tomagatchi.hungerTimer);
-            clearInterval(tomagatchi.ageTimer);
-            clearInterval(tomagatchi.energyTimer);
-            clearInterval(tomagatchi.happyTimer);
-            console.log(`${tomagatchi.name} has died :(`)
-            tomagatchi.petDeath();
-            return
-        }
     },
 
     startEnergyTimer() {
@@ -142,12 +114,39 @@ const tomagatchi = {
         tomagatchi.energyScale--;
         console.log(tomagatchi.energyScale);
         $(".energyscale").text(`Energy: ${tomagatchi.energyScale}`);
-        if(tomagatchi.energyScale === 0) {
-            clearInterval(tomagatchi.energyTimer);
-            clearInterval(tomagatchi.ageTimer);
+        if(tomagatchi.energyScale === 0 || tomagatchi.hungerScale === 0 || tomagatchi.happinessScale === 0) {
+            clearInterval(tomagatchi.startEnergyTimer);
+            clearInterval(tomagatchi.startAgeTimer);
             clearInterval(tomagatchi.hungerTimer);
             clearInterval(tomagatchi.happyTimer);
             console.log("Your Tommy has died, he was too weak");
+            tomagatchi.petDeath();
+            return
+        }
+    },
+
+    startHungryTimer(){
+        // setInterval(function to run, time between each run)
+            tomagatchi.hungerTimer = setInterval(tomagatchi.reduceHungerMeter, 1000);
+      },
+    
+    feedMe () {
+        console.log("Feed me!");
+        if(tomagatchi.hungerScale >= 10) {
+            tomagatchi.hungerScale = 10;
+        }
+        tomagatchi.hungerScale = tomagatchi.hungerScale + 1;
+    },
+
+    reduceHungerMeter () {
+        tomagatchi.hungerScale--;
+        $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
+        if(tomagatchi.hungerScale <= 0 ){
+            clearInterval(tomagatchi.hungerTimer);
+            clearInterval(tomagatchi.startAgeTimer);
+            clearInterval(tomagatchi.energyTimer);
+            clearInterval(tomagatchi.happyTimer);
+            console.log(`${tomagatchi.name} has died :(`)
             tomagatchi.petDeath();
             return
         }
@@ -169,9 +168,9 @@ const tomagatchi = {
     reduceHappyMeter () {
         tomagatchi.happinessScale--;
         $(".happyscale").text(`Hungry: ${tomagatchi.happinessScale}`);
-        if (tomagatchi.happinessScale <= 0) {
-            clearInterval(tomagatchi.happyTimer);
-            clearInterval(tomagatchi.ageTimer);
+        if (tomagatchi.happinessScale === 0) {
+            clearInterval(tomagatchi.startHappyTimer);
+            clearInterval(tomagatchi.startAgeTimer);
             clearInterval(tomagatchi.hungerTimer);
             clearInterval(tomagatchi.energyTimer);
             console.log("Your Tommy died of saddness");
@@ -182,8 +181,8 @@ const tomagatchi = {
 
 
     // Logic that governs the timers
-    ageTimer(){
-        tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 300)
+    startAgeTimer(){
+        tomagatchi.startAgeTimer = setInterval(tomagatchi.ageCounter, 300)
     },
     // FIXME - age counter hard stops at 33 years old.
     ageCounter () {

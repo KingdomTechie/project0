@@ -99,22 +99,63 @@ const tomagatchi = {
 
     },
 
-        // Logic that increases meters when button is clicked
+    startHungryTimer(){
+        // setInterval(function to run, time between each run)
+            tomagatchi.hungerTimer = setInterval(tomagatchi.reduceHungerMeter, 1000);
+      },
+    
     feedMe () {
         console.log("Feed me!");
-        // if(tomagatchi.hungerScale >= 10) {
-        //     tomagatchi.hungerScale = 10;
-        // }
+        if(tomagatchi.hungerScale >= 10) {
+            tomagatchi.hungerScale = 10;
+        }
         tomagatchi.hungerScale = tomagatchi.hungerScale + 1;
-        
     },
 
+    reduceHungerMeter () {
+        tomagatchi.hungerScale--;
+        $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
+        if(tomagatchi.hungerScale <= 0){
+            clearInterval(tomagatchi.hungerTimer);
+            clearInterval(tomagatchi.ageTimer);
+            clearInterval(tomagatchi.energyTimer);
+            clearInterval(tomagatchi.happyTimer);
+            console.log(`${tomagatchi.name} has died :(`)
+            tomagatchi.petDeath();
+            return
+        }
+    },
+
+    startEnergyTimer() {
+        console.log("Energy Timer");
+        energyTimer = setInterval(tomagatchi.reduceEnergyMeter, 1000);
+    },
     energizeMe () {
         console.log("Energize me");
-        // if(tomagatchi.energyScale >= 10) {
-        //     tomagatchi.energyScale = 10;
-        // }
+        if(tomagatchi.energyScale >= 10) {
+            tomagatchi.energyScale = 10;
+        }
         tomagatchi.energyScale = tomagatchi.energyScale + 1;
+    },
+
+    reduceEnergyMeter () {
+        tomagatchi.energyScale--;
+        console.log(tomagatchi.energyScale);
+        $(".energyscale").text(`Energy: ${tomagatchi.energyScale}`);
+        if(tomagatchi.energyScale === 0) {
+            clearInterval(tomagatchi.energyTimer);
+            clearInterval(tomagatchi.ageTimer);
+            clearInterval(tomagatchi.hungerTimer);
+            clearInterval(tomagatchi.happyTimer);
+            console.log("Your Tommy has died, he was too weak");
+            tomagatchi.petDeath();
+            return
+        }
+    },
+
+    startHappyTimer () {
+        console.log("Happy Timer");
+        happyTimer = setInterval(tomagatchi.reduceHappyMeter, 1000);
     },
 
     makeHappy () {
@@ -124,6 +165,20 @@ const tomagatchi = {
         // }
         tomagatchi.happinessScale = tomagatchi.happinessScale + 1;
     },
+
+    // reduceHappyMeter () {
+    //     tomagatchi.happinessScale--;
+    //     if (tomagatchi.happinessScale <= 0) {
+    //         clearInterval(tomagatchi.happyTimer);
+    //         clearInterval(tomagatchi.ageTimer);
+    //         clearInterval(tomagatchi.hungerTimer);
+    //         clearInterval(tomagatchi.energyTimer);
+    //         console.log("Your Tommy died of saddness");
+    //         tomagatchi.petDeath();
+    //         return
+    //     }
+    // },
+
 
     // Logic that governs the timers
     ageTimer(){
@@ -143,76 +198,19 @@ const tomagatchi = {
             $("#profilepicID").attr("src", "images/adultdragon.jpeg");
         }
     },
-    // Modified from Dalton's reduceTime method in PokeASquare
     
-
-    startHungryTimer(){
-    // setInterval(function to run, time between each run)
-        tomagatchi.hungerTimer = setInterval(tomagatchi.reduceHungerMeter, 1000);
-  },
-    startHappyTimer () {
-        console.log("Happy Timer");
-        happyTimer = setInterval(tomagatchi.reduceHappyMeter, 1000);
-    },
-
-    startEnergyTimer() {
-        console.log("Energy Timer");
-        energyTimer = setInterval(tomagatchi.reduceEnergyMeter, 1000);
-  },
-
-    reduceHungerMeter () {
-        tomagatchi.hungerScale--;
-        $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
-        if(tomagatchi.hungerScale <= 0){
-            clearInterval(tomagatchi.hungerTimer);
-            clearInterval(tomagatchi.ageTimer);
-            clearInterval(tomagatchi.energyTimer);
-            clearInterval(tomagatchi.happyTimer);
-            console.log(`${tomagatchi.name} has died :(`)
-            tomagatchi.petDeath();
-            return
-        }
-    },
-
-    // reduceEnergyMeter () {
-    //     tomagatchi.energyScale--;
-    //     $(".energyscale").text(`Energy: ${tomagatchi.energyScale}`);
-    //     if (tomagatchi.energyScale <= 0) {
-    //         clearInterval(tomagatchi.energyTimer);
-    //         clearInterval(tomagatchi.ageTimer);
-    //         clearInterval(tomagatchi.hungerTimer);
-    //         clearInterval(tomagatchi.happyTimer);
-    //         console.log("Your Tommy has died, he was too weak");
-    //         tomagatchi.petDeath();
-    //         return
-    //     }
-    // },
-
-    // reduceHappyMeter () {
-    //     tomagatchi.happinessScale--;
-    //     if (tomagatchi.happinessScale <= 0) {
-    //         clearInterval(tomagatchi.happyTimer);
-    //         clearInterval(tomagatchi.ageTimer);
-    //         clearInterval(tomagatchi.hungerTimer);
-    //         clearInterval(tomagatchi.energyTimer);
-    //         console.log("Your Tommy died of saddness");
-    //         tomagatchi.petDeath();
-    //         return
-    //     }
-    // },
-
       // Logic to trigger when any of the meters deplete to 0
-    petDeath () {
-        $("body").css("background-image", "url(https://c4.wallpaperflare.com/wallpaper/601/475/772/grave-yard-green-trees-and-web-wallpaper-preview.jpg)")
-        $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
-        $("h1").remove();
-        $(".meters").fadeOut(400);
-        $("body").append($deathBar)
-        console.log("This will create the end of the game");
-        $("#profilepicID").attr("src", "images/tombstone.png")
-        $(".petcard").css("animation", "")
-        return
-    },
+    // petDeath () {
+    //     $("body").css("background-image", "url(https://c4.wallpaperflare.com/wallpaper/601/475/772/grave-yard-green-trees-and-web-wallpaper-preview.jpg)")
+    //     $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
+    //     $("h1").remove();
+    //     $(".meters").fadeOut(400);
+    //     $("body").append($deathBar)
+    //     console.log("This will create the end of the game");
+    //     $("#profilepicID").attr("src", "images/tombstone.png")
+    //     $(".petcard").css("animation", "")
+    //     return
+    // },
       
 }
 

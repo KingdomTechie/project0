@@ -64,6 +64,10 @@ button {
 
     75% {transform: rotate((75deg))}
 
+    0% {transform: rotate(25deg)}
+
+    100% {transform: rotate(100deg)}
+
     to {transform: translateX(60vw)}
     
 }
@@ -148,6 +152,8 @@ section.profilepic.adultdragon {
     justify-content: space-around;
     align-items: center;
     max-height: 179px;
+    padding: 10%;
+    margin-left: -5%
     /* margin-top: 100px; */
 
 }
@@ -194,3 +200,61 @@ span {
     font-size: 40px;
     margin-top: 22vw;
 }
+
+#happybutton {
+    background-color: #9098b2; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+#happybutton:hover {
+    cursor: pointer;
+}
+
+#energybutton:hover {
+    cursor: pointer;
+}
+
+#energybutton {
+    background-color: #9098b2; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+#hungrybutton:hover {
+    cursor: pointer;
+}
+
+#hungrybutton {
+    background-color: #9098b2; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  #petsubmit {
+    transition-duration: 0.4s;
+  }
+  
+  #petsubmit:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }

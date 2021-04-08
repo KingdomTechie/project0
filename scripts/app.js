@@ -55,11 +55,11 @@ const tomagatchi = {
         $name = $("#petname").val();
         tomagatchi.name = $name;
 
-        $("h1").text(`Hi ${$name}!!`);
+        $("h1").text(`Keep ${$name} alive!!`);
 
         $("input").fadeOut(100);
         $("#petsubmit").fadeOut(100);
-        $("h1").css("animation", "5s slideOut")
+        // $("h1").css("animation", "5s slideOut")
         $(".petcard").css("animation", "3s linear 1s infinite alternate slideRight");
 
 

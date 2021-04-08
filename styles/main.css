@@ -42,6 +42,14 @@ button {
     position: relative;
 }
 
+@keyframes slideLeft {
+    0% {transform: translateX(-100%);
+    }
+
+    100% { transform: translateX(0);
+    }
+
+}
 .petcard {
     /* display: none; */
     height: 178px;
@@ -51,8 +59,12 @@ button {
     position: absolute;
     margin-top: -3%;
     border-radius: 100%;
+    animation: 1s slideLeft; 
 }
 
+.stats {
+    font-size: 20px;
+}
 
 
 

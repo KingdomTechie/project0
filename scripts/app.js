@@ -45,6 +45,7 @@ console.log("Welcome to the world little tomagatchi!");
 const tomagatchi = {
     name: "",
     age: 0,
+    // hungerTimer: null,
     hungerScale: 10,
     energyScale: 10,
     happinessScale: 10,
@@ -70,7 +71,6 @@ const tomagatchi = {
         );
 
         // Images created for meters
-        
         $hungryHappyImage = $("<img id='happydragonimage' src='images/eatingdragon.jpg'></img>");
         $hungrySadImage = $("<img id='saddragonimage' src='images/Saddragon.jpeg'></img>")
         $(".hungry").append($hungryHappyImage);
@@ -104,7 +104,7 @@ const tomagatchi = {
         // Logic that increases meters when button is clicked
     feedMe () {
         console.log("Feed me!");
-        if(tomagatchi.hungerScale <= 10)
+        // if(tomagatchi.hungerScale <= 10)
         tomagatchi.hungerScale = tomagatchi.hungerScale + 1;
     },
 
@@ -124,51 +124,101 @@ const tomagatchi = {
     },
 
     // Modified from Dalton's reduceTime method in PokeASquare
+    
 
     startHungryTimer(){
     // setInterval(function to run, time between each run)
-        hungerTimer = setInterval(tomagatchi.reduceMeters, 1000);
+        tomagatchi.hungerTimer = setInterval(tomagatchi.reduceHungerMeter, 1000);
   },
     startHappyTimer () {
         console.log("Happy Timer");
-        happyTimer = setInterval(tomagatchi.reduceMeters, 13000);
+        happyTimer = setInterval(tomagatchi.reduceHappyMeter, 1000);
     },
 
     startEnergyTimer() {
         console.log("Energy Timer");
-        energyTimer = setInterval(tomagatchi.reduceMeters, 15000);
+        energyTimer = setInterval(tomagatchi.reduceEnergyMeter, 1000);
   },
 
-  reduceMeters(){
-    if (tomagatchi.hungerScale > 0 || tomagatchi.energyScale > 0 || tomagatchi.happinessScale > 0){
+    reduceHungerMeter () {
         tomagatchi.hungerScale--;
-        tomagatchi.energyScale--;
-        tomagatchi.happinessScale--;
         $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
-        $(".energyscale").text(`Energy: ${tomagatchi.energyScale}`);
-        $(".happyscale").text(`Happy: ${tomagatchi.hungerScale}`);
-
         if(tomagatchi.hungerScale <= 0){
-            clearInterval(tomagatchi.hungerScale);
+            clearInterval(tomagatchi.hungerTimer);
+            clearInterval(tomagatchi.ageTimer);
+            clearInterval(tomagatchi.energyTimer);
+            clearInterval(tomagatchi.happyTimer);
             console.log(`${tomagatchi.name} has died :(`)
             tomagatchi.petDeath();
             return
-        } else if (tomagatchi.energyScale <= 0) {
-            clearInterval(tomagatchi.energyScale);
+        }
+    },
+
+    reduceEnergyMeter () {
+        tomagatchi.energyScale--;
+        $(".energyscale").text(`Energy: ${tomagatchi.energyScale}`);
+        if (tomagatchi.energyScale <= 0) {
+            clearInterval(tomagatchi.energyTimer);
+            clearInterval(tomagatchi.ageTimer);
+            clearInterval(tomagatchi.hungerTimer);
+            clearInterval(tomagatchi.happyTimer);
             console.log("Your Tommy has died, he was too weak");
             tomagatchi.petDeath();
             return
-        } else if (tomagatchi.happinessScale <= 0) {
-            clearInterval(tomagatchi.happinessScale);
+        }
+    },
+
+    reduceHappyMeter () {
+        tomagatchi.happinessScale--;
+        if (tomagatchi.happinessScale <= 0) {
+            clearInterval(tomagatchi.happyTimer);
+            clearInterval(tomagatchi.ageTimer);
+            clearInterval(tomagatchi.hungerTimer);
+            clearInterval(tomagatchi.energyTimer);
             console.log("Your Tommy died of saddness");
             tomagatchi.petDeath();
             return
-
         }
-    }
-  },
+    },
 
-  
+//   reduceMeters(){
+//     if (tomagatchi.hungerScale > 0 || tomagatchi.energyScale > 0 || tomagatchi.happinessScale > 0){
+//         tomagatchi.hungerScale--;
+//         tomagatchi.energyScale--;
+//         tomagatchi.happinessScale--;
+//         $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
+//         $(".energyscale").text(`Energy: ${tomagatchi.energyScale}`);
+//         $(".happyscale").text(`Happy: ${tomagatchi.hungerScale}`);
+
+//         if(tomagatchi.hungerScale <= 0){
+//             clearInterval(tomagatchi.hungerTimer);
+//             clearInterval(tomagatchi.ageTimer);
+//             clearInterval(tomagatchi.energyTimer);
+//             clearInterval(tomagatchi.happyTimer);
+//             console.log(`${tomagatchi.name} has died :(`)
+//             tomagatchi.petDeath();
+//             return
+//         } else if (tomagatchi.energyScale <= 0) {
+//             clearInterval(tomagatchi.energyTimer);
+//             clearInterval(tomagatchi.ageTimer);
+//             clearInterval(tomagatchi.hungerTimer);
+//             clearInterval(tomagatchi.happyTimer);
+//             console.log("Your Tommy has died, he was too weak");
+//             tomagatchi.petDeath();
+//             return
+//         } else if (tomagatchi.happinessScale <= 0) {
+//             clearInterval(tomagatchi.happyTimer);
+//             clearInterval(tomagatchi.ageTimer);
+//             clearInterval(tomagatchi.hungerTimer);
+//             clearInterval(tomagatchi.energyTimer);
+//             console.log("Your Tommy died of saddness");
+//             tomagatchi.petDeath();
+//             return
+
+//         }
+//     }
+//   },
+
     ageCounter () {
         
         tomagatchi.age++;
@@ -191,15 +241,15 @@ const tomagatchi = {
     },
 
       // Logic to trigger when any of the meters deplete to 0
-    petDeath () {
-        $("body").css("background-image", "url(https://c4.wallpaperflare.com/wallpaper/601/475/772/grave-yard-green-trees-and-web-wallpaper-preview.jpg)")
-        $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
-        $("h1").remove();
-        $(".meters").fadeOut(400);
-        $("body").append($deathBar)
-        console.log("This will create the end of the game");
-        return
-    },
+    // petDeath () {
+    //     $("body").css("background-image", "url(https://c4.wallpaperflare.com/wallpaper/601/475/772/grave-yard-green-trees-and-web-wallpaper-preview.jpg)")
+    //     $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
+    //     $("h1").remove();
+    //     $(".meters").fadeOut(400);
+    //     $("body").append($deathBar)
+    //     console.log("This will create the end of the game");
+    //     return
+    // },
       
   
 

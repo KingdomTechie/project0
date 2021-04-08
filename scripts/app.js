@@ -225,6 +225,8 @@ const tomagatchi = {
         $(".meters").fadeOut(400);
         $("body").append($deathBar)
         console.log("This will create the end of the game");
+        $("#profilepicID").attr("src", "images/tombstone.png")
+        $(".petcard").css("animation", "")
         return
     },
       

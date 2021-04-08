@@ -100,7 +100,7 @@ const tomagatchi = {
 
     startEnergyTimer() {
         console.log("Energy Timer");
-        energyTimer = setInterval(tomagatchi.reduceEnergyMeter, 1000);
+        tomagatchi.energyTimer = setInterval(tomagatchi.reduceEnergyMeter, 1000);
     },
     energizeMe () {
         console.log("Energize me");
@@ -114,8 +114,8 @@ const tomagatchi = {
         tomagatchi.energyScale--;
         console.log(tomagatchi.energyScale);
         $(".energyscale").text(`Energy: ${tomagatchi.energyScale}`);
-        if(tomagatchi.energyScale === 0 || tomagatchi.hungerScale === 0 || tomagatchi.happinessScale === 0) {
-            clearInterval(tomagatchi.startEnergyTimer);
+        if(tomagatchi.energyScale <= 0) {
+            clearInterval(tomagatchi.energyTimer);
             clearInterval(tomagatchi.startAgeTimer);
             clearInterval(tomagatchi.hungerTimer);
             clearInterval(tomagatchi.happyTimer);
@@ -154,7 +154,7 @@ const tomagatchi = {
 
     startHappyTimer () {
         console.log("Happy Timer");
-        happyTimer = setInterval(tomagatchi.reduceHappyMeter, 1000);
+        tomagatchi.happyTimer = setInterval(tomagatchi.reduceHappyMeter, 1000);
     },
 
     makeHappy () {
@@ -169,7 +169,7 @@ const tomagatchi = {
         tomagatchi.happinessScale--;
         $(".happyscale").text(`Hungry: ${tomagatchi.happinessScale}`);
         if (tomagatchi.happinessScale === 0) {
-            clearInterval(tomagatchi.startHappyTimer);
+            clearInterval(tomagatchi.happyTimer);
             clearInterval(tomagatchi.startAgeTimer);
             clearInterval(tomagatchi.hungerTimer);
             clearInterval(tomagatchi.energyTimer);
@@ -200,17 +200,17 @@ const tomagatchi = {
     },
     
       // Logic to trigger when any of the meters deplete to 0
-    // petDeath () {
-    //     $("body").css("background-image", "url(https://c4.wallpaperflare.com/wallpaper/601/475/772/grave-yard-green-trees-and-web-wallpaper-preview.jpg)")
-    //     $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
-    //     $("h1").remove();
-    //     $(".meters").fadeOut(400);
-    //     $("body").append($deathBar)
-    //     console.log("This will create the end of the game");
-    //     $("#profilepicID").attr("src", "images/tombstone.png")
-    //     $(".petcard").css("animation", "")
-    //     return
-    // },
+    petDeath () {
+        $("body").css("background-image", "url(https://c4.wallpaperflare.com/wallpaper/601/475/772/grave-yard-green-trees-and-web-wallpaper-preview.jpg)")
+        $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
+        $("h1").remove();
+        $(".meters").fadeOut(400);
+        $("body").append($deathBar)
+        console.log("This will create the end of the game");
+        $("#profilepicID").attr("src", "images/tombstone.png")
+        $(".petcard").css("animation", "")
+        return
+    },
       
 }
 

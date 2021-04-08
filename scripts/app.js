@@ -91,6 +91,13 @@ const tomagatchi = {
         tomagatchi.startEnergyTimer();
         tomagatchi.startHappyTimer();
 
+        $hungryButton = $("<button id='hungrybutton'>HUNGRY!</button>");
+        $energyButton = $("<button id='energybutton'>Need Energy!</button>");
+        $happyButton = $("<button id= 'happybutton'>Play with me!</button>");
+        $(".hungry").after($hungryButton);
+        $(".energy").after($energyButton);
+        $(".happy").after($happyButton);
+
        // This on click event is stored within petName to trigger the meter buttons
     $("#hungrybutton").on("click", tomagatchi.feedMe);
     $("#energybutton").on("click", tomagatchi.energizeMe);
@@ -200,17 +207,17 @@ const tomagatchi = {
     },
     
       // Logic to trigger when any of the meters deplete to 0
-    petDeath () {
-        $("body").css("background-image", "url(https://c4.wallpaperflare.com/wallpaper/601/475/772/grave-yard-green-trees-and-web-wallpaper-preview.jpg)")
-        $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
-        $("h1").remove();
-        $(".meters").fadeOut(400);
-        $("body").append($deathBar)
-        console.log("This will create the end of the game");
-        $("#profilepicID").attr("src", "images/tombstone.png")
-        $(".petcard").css("animation", "")
-        return
-    },
+    // petDeath () {
+    //     $("body").css("background-image", "url(https://c4.wallpaperflare.com/wallpaper/601/475/772/grave-yard-green-trees-and-web-wallpaper-preview.jpg)")
+    //     $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
+    //     $("h1").remove();
+    //     $(".meters").fadeOut(400);
+    //     $("body").append($deathBar)
+    //     console.log("This will create the end of the game");
+    //     $("#profilepicID").attr("src", "images/tombstone.png")
+    //     $(".petcard").css("animation", "")
+    //     return
+    // },
       
 }
 
@@ -220,12 +227,7 @@ $("#petsubmit").on("click", tomagatchi.petName);
 
 
 // NOTE - ICE BOX - This section creates the meter buttons
-$hungryButton = $("<button id='hungrybutton'>HUNGRY!</button>");
-$energyButton = $("<button id='energybutton'>Need Energy!</button>");
-$happyButton = $("<button id= 'happybutton'>Play with me!</button>");
-$(".hungry").after($hungryButton);
-$(".energy").after($energyButton);
-$(".happy").after($happyButton);
+
 
 // NOTE - still need to work through this logic - ICE BOX
 // changeMeterImage (){

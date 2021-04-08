@@ -213,14 +213,17 @@ span {
   }
 
 #happybutton:hover {
+    transition-duration: 0.4s;
     cursor: pointer;
 }
 
 #energybutton:hover {
+    transition-duration: 0.4s;
     cursor: pointer;
 }
 
 #energybutton {
+    transition-duration: 0.4s;
     background-color: #9098b2; 
     border: none;
     color: white;
@@ -233,6 +236,7 @@ span {
 
 #hungrybutton:hover {
     cursor: pointer;
+    transition-duration: 0.4s;
 }
 
 #hungrybutton {
@@ -248,13 +252,14 @@ span {
 
   #petsubmit {
     transition-duration: 0.4s;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
   }
   
   #petsubmit:hover {
     background-color: #4CAF50; /* Green */
     color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    
   }

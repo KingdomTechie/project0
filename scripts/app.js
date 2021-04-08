@@ -122,8 +122,6 @@ const tomagatchi = {
         console.log("Energize me");
         if(tomagatchi.energyScale = 10) {
             tomagatchi.energyScale = 10;
-        } else if (tomagatchi.energizeMe <=0) {
-            return
         }
         tomagatchi.energyScale = tomagatchi.energyScale + 1;
     },
@@ -135,7 +133,7 @@ const tomagatchi = {
 
     // Logic that governs the timers
     ageTimer(){
-        tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 300)
+        tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 1000)
     },
 
     ageCounter () {
@@ -143,7 +141,7 @@ const tomagatchi = {
         tomagatchi.age++;
         $(".agescale").text(`Age: ${tomagatchi.age}`)
         if(tomagatchi.age >= 18) {
-            $("#profilepicID").attr("src", "images/adolescentdragon.jpeg");
+            $("#profilepicID").attr("src", "images/teenagedragon.png");
         }
         if(tomagatchi.age >= 30) {
             $("#profilepicID").addClass("adultdragon");
@@ -209,6 +207,36 @@ const tomagatchi = {
         }
     },
 
+
+    
+    // NOTE - still need to work through this logic
+    changeMeterImage (){
+        $hungrySadImage = $("<img id='hungrysadimage' src='images/Saddragon.jpeg'></img>")
+        if (tomagatchi.hungerScale <= 5) {
+            $(".hungry").append($hungrySadImage);
+        }
+    },
+
+      // Logic to trigger when any of the meters deplete to 0
+    petDeath () {
+        $("body").css("background-image", "url(https://c4.wallpaperflare.com/wallpaper/601/475/772/grave-yard-green-trees-and-web-wallpaper-preview.jpg)")
+        $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
+        $("h1").remove();
+        $(".meters").fadeOut(400);
+        $("body").append($deathBar)
+        console.log("This will create the end of the game");
+        return
+    },
+      
+  
+
+}
+
+
+$("#petsubmit").on("click", tomagatchi.petName);
+
+
+
 //   reduceMeters(){
 //     if (tomagatchi.hungerScale > 0 || tomagatchi.energyScale > 0 || tomagatchi.happinessScale > 0){
 //         tomagatchi.hungerScale--;
@@ -246,34 +274,4 @@ const tomagatchi = {
 //         }
 //     }
 //   },
-
-    
-    // NOTE - still need to work through this logic
-    changeMeterImage (){
-        $hungrySadImage = $("<img id='hungrysadimage' src='images/Saddragon.jpeg'></img>")
-        if (tomagatchi.hungerScale <= 5) {
-            $(".hungry").append($hungrySadImage);
-        }
-    },
-
-      // Logic to trigger when any of the meters deplete to 0
-    // petDeath () {
-    //     $("body").css("background-image", "url(https://c4.wallpaperflare.com/wallpaper/601/475/772/grave-yard-green-trees-and-web-wallpaper-preview.jpg)")
-    //     $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
-    //     $("h1").remove();
-    //     $(".meters").fadeOut(400);
-    //     $("body").append($deathBar)
-    //     console.log("This will create the end of the game");
-    //     return
-    // },
-      
-  
-
-}
-
-
-$("#petsubmit").on("click", tomagatchi.petName);
-
-
-
 

@@ -160,19 +160,19 @@ const tomagatchi = {
         energyTimer = setInterval(tomagatchi.reduceEnergyMeter, 1000);
   },
 
-    // reduceHungerMeter () {
-    //     tomagatchi.hungerScale--;
-    //     $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
-    //     if(tomagatchi.hungerScale <= 0){
-    //         clearInterval(tomagatchi.hungerTimer);
-    //         clearInterval(tomagatchi.ageTimer);
-    //         clearInterval(tomagatchi.energyTimer);
-    //         clearInterval(tomagatchi.happyTimer);
-    //         console.log(`${tomagatchi.name} has died :(`)
-    //         tomagatchi.petDeath();
-    //         return
-    //     }
-    // },
+    reduceHungerMeter () {
+        tomagatchi.hungerScale--;
+        $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
+        if(tomagatchi.hungerScale <= 0){
+            clearInterval(tomagatchi.hungerTimer);
+            clearInterval(tomagatchi.ageTimer);
+            clearInterval(tomagatchi.energyTimer);
+            clearInterval(tomagatchi.happyTimer);
+            console.log(`${tomagatchi.name} has died :(`)
+            tomagatchi.petDeath();
+            return
+        }
+    },
 
     // reduceEnergyMeter () {
     //     tomagatchi.energyScale--;

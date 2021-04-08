@@ -160,46 +160,46 @@ const tomagatchi = {
         energyTimer = setInterval(tomagatchi.reduceEnergyMeter, 1000);
   },
 
-    reduceHungerMeter () {
-        tomagatchi.hungerScale--;
-        $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
-        if(tomagatchi.hungerScale <= 0){
-            clearInterval(tomagatchi.hungerTimer);
-            clearInterval(tomagatchi.ageTimer);
-            clearInterval(tomagatchi.energyTimer);
-            clearInterval(tomagatchi.happyTimer);
-            console.log(`${tomagatchi.name} has died :(`)
-            tomagatchi.petDeath();
-            return
-        }
-    },
+    // reduceHungerMeter () {
+    //     tomagatchi.hungerScale--;
+    //     $(".hungerscale").text(`Hungry: ${tomagatchi.hungerScale}`);
+    //     if(tomagatchi.hungerScale <= 0){
+    //         clearInterval(tomagatchi.hungerTimer);
+    //         clearInterval(tomagatchi.ageTimer);
+    //         clearInterval(tomagatchi.energyTimer);
+    //         clearInterval(tomagatchi.happyTimer);
+    //         console.log(`${tomagatchi.name} has died :(`)
+    //         tomagatchi.petDeath();
+    //         return
+    //     }
+    // },
 
-    reduceEnergyMeter () {
-        tomagatchi.energyScale--;
-        $(".energyscale").text(`Energy: ${tomagatchi.energyScale}`);
-        if (tomagatchi.energyScale <= 0) {
-            clearInterval(tomagatchi.energyTimer);
-            clearInterval(tomagatchi.ageTimer);
-            clearInterval(tomagatchi.hungerTimer);
-            clearInterval(tomagatchi.happyTimer);
-            console.log("Your Tommy has died, he was too weak");
-            tomagatchi.petDeath();
-            return
-        }
-    },
+    // reduceEnergyMeter () {
+    //     tomagatchi.energyScale--;
+    //     $(".energyscale").text(`Energy: ${tomagatchi.energyScale}`);
+    //     if (tomagatchi.energyScale <= 0) {
+    //         clearInterval(tomagatchi.energyTimer);
+    //         clearInterval(tomagatchi.ageTimer);
+    //         clearInterval(tomagatchi.hungerTimer);
+    //         clearInterval(tomagatchi.happyTimer);
+    //         console.log("Your Tommy has died, he was too weak");
+    //         tomagatchi.petDeath();
+    //         return
+    //     }
+    // },
 
-    reduceHappyMeter () {
-        tomagatchi.happinessScale--;
-        if (tomagatchi.happinessScale <= 0) {
-            clearInterval(tomagatchi.happyTimer);
-            clearInterval(tomagatchi.ageTimer);
-            clearInterval(tomagatchi.hungerTimer);
-            clearInterval(tomagatchi.energyTimer);
-            console.log("Your Tommy died of saddness");
-            tomagatchi.petDeath();
-            return
-        }
-    },
+    // reduceHappyMeter () {
+    //     tomagatchi.happinessScale--;
+    //     if (tomagatchi.happinessScale <= 0) {
+    //         clearInterval(tomagatchi.happyTimer);
+    //         clearInterval(tomagatchi.ageTimer);
+    //         clearInterval(tomagatchi.hungerTimer);
+    //         clearInterval(tomagatchi.energyTimer);
+    //         console.log("Your Tommy died of saddness");
+    //         tomagatchi.petDeath();
+    //         return
+    //     }
+    // },
 
       // Logic to trigger when any of the meters deplete to 0
     petDeath () {

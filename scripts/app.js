@@ -34,13 +34,13 @@ console.log("Welcome to the world little tomagatchi!");
 // 	- graphics change to a graveyard background
 // 	- Pet card displays: ${Name} has died of ${which bar depleted}
 
-//** PROGRAM LOGIC  **//
+// ** PROGRAM LOGIC  **//
 
-//** STEP 0 - add HTML structure elements */
+// ** STEP 0 - add HTML structure elements */
 // added divs for the 3 main pages of the game: start page, play page and death page
-//** STEP 1 - Create tomagatchi object */
+// ** STEP 1 - Create tomagatchi object */
 // Name will be parsed from the user input space when naming tomagatchi
-//
+
 
 const tomagatchi = {
     name: "",

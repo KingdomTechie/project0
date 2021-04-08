@@ -99,9 +99,9 @@ const tomagatchi = {
         $(".happy").after($happyButton);
 
        // This on click event is stored within petName to trigger the meter buttons
-    $("#hungrybutton").on("click", tomagatchi.feedMe);
-    $("#energybutton").on("click", tomagatchi.energizeMe);
-    $("#happybutton").on("click", tomagatchi.makeHappy);
+        $("#hungrybutton").on("click", tomagatchi.feedMe);
+        $("#energybutton").on("click", tomagatchi.energizeMe);
+        $("#happybutton").on("click", tomagatchi.makeHappy);
 
     },
 

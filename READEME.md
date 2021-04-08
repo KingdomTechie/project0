@@ -1,7 +1,13 @@
 User Stories
 Landing Page
 - the user is greeted in the landing page where a tomagatchi image slides into view
-- the user is prompted 
+- the user is prompted to enter their pet's name into the input field
+- Once the user inputs their pet's name and clicks the "Submit" button, the game phases into the main core mechanics.
+
+Core Game Mechanic Walkthrough
+- the user will now see that their pet avatar is dancing across the screen in linear fashion.
+- on the right side of the screen, the following meters of "Hungry", "Energy", "Happy" and "Age" are displayed, below the Name of the avatar.  These meters immediately begin counting down once the user enters this stage.
+- the main page contains 3 buttons the user will have to continuously click to keep the number value of the aforementioned meters above 0.  
 
 Name your Pet Page
  - css - Tree, sunshine, and butterflies will remain on the page

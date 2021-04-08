@@ -99,7 +99,7 @@ const tomagatchi = {
         $("#energybutton").on("click", tomagatchi.energizeMe);
         $("#happybutton").on("click", tomagatchi.makeHappy);
 
-        $(".petcard").slide(2000);
+
     },
         // Logic that increases meters when button is clicked
     feedMe () {
@@ -196,6 +196,7 @@ const tomagatchi = {
 
       // Logic to trigger when any of the meters deplete to 0
     petDeath () {
+        $("body").css("background-image", "url(https://c4.wallpaperflare.com/wallpaper/601/475/772/grave-yard-green-trees-and-web-wallpaper-preview.jpg)")
         $deathBar = $(`<div id="deathbar">${tomagatchi.name} has died</div>`)
         $("h1").remove();
         $(".meters").fadeOut(400);

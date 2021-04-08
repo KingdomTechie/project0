@@ -62,6 +62,7 @@ const tomagatchi = {
         $("#petsubmit").fadeOut(100);
         $("h1").css("animation", "5s slideOut")
         $(".petcard").css("animation", "3s linear 1s infinite alternate slideRight");
+        
 
 
 

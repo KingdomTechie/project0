@@ -38,7 +38,7 @@ button {
     height: 24vh;
     padding: 0;
     margin-right: 1%;
-    margin-top: 43%;
+    margin-top: 22%;
     position: relative;
 }
 
@@ -53,11 +53,17 @@ button {
 
 @keyframes slideRight {
 
-    from {transform: translateX(0)}
+    from {transform: translateX(0);
+        transform: rotate(25deg);
+    }
+    50% {transform: rotate(50deg)}
+
+    75% {transform: rotate((75deg))}
 
     to {transform: translateX(65vw)}
     
 }
+
 
 @keyframes slideOut {
     from {transform: translateX(0)}

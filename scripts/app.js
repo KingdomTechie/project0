@@ -153,16 +153,12 @@ const tomagatchi = {
             console.log(`${tomagatchi.name} has died :(`)
             tomagatchi.petDeath();
             return
-        }
-
-        if(tomagatchi.energyScale <= 0) {
+        } else if (tomagatchi.energyScale <= 0) {
             clearInterval(tomagatchi.energyScale);
             console.log("Your Tommy has died, he was too weak");
             tomagatchi.petDeath();
             return
-        }
-
-        if (tomagatchi.happinessScale <= 0) {
+        } else if (tomagatchi.happinessScale <= 0) {
             clearInterval(tomagatchi.happinessScale);
             console.log("Your Tommy died of saddness");
             tomagatchi.petDeath();

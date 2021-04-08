@@ -60,6 +60,9 @@ const tomagatchi = {
 
         $("input").fadeOut(100);
         $("#petsubmit").fadeOut(100);
+
+
+
         // This section adds the stats section that contains timer information
         $profileStats = $(".stats");
         $($profileStats).prepend(`
@@ -104,12 +107,20 @@ const tomagatchi = {
         // Logic that increases meters when button is clicked
     feedMe () {
         console.log("Feed me!");
-        // if(tomagatchi.hungerScale <= 10)
+        if(tomagatchi.hungerScale = 10) {
+            tomagatchi.hungerScale = 10;
+        }
         tomagatchi.hungerScale = tomagatchi.hungerScale + 1;
+        
     },
 
     energizeMe () {
         console.log("Energize me");
+        if(tomagatchi.energyScale = 10) {
+            tomagatchi.energyScale = 10;
+        } else if (tomagatchi.energizeMe <=0) {
+            return
+        }
         tomagatchi.energyScale = tomagatchi.energyScale + 1;
     },
 
@@ -123,6 +134,19 @@ const tomagatchi = {
         tomagatchi.ageTimer = setInterval(tomagatchi.ageCounter, 300)
     },
 
+    ageCounter () {
+        
+        tomagatchi.age++;
+        $(".agescale").text(`Age: ${tomagatchi.age}`)
+        if(tomagatchi.age >= 18) {
+            $("#profilepicID").attr("src", "images/adolescentdragon.jpeg");
+        }
+        if(tomagatchi.age >= 30) {
+            $("#profilepicID").addClass("adultdragon");
+            $("section.profilepic").addClass("adultdragon")
+            $("#profilepicID").attr("src", "images/adultdragon.jpeg");
+        }
+    },
     // Modified from Dalton's reduceTime method in PokeASquare
     
 
@@ -219,19 +243,7 @@ const tomagatchi = {
 //     }
 //   },
 
-    ageCounter () {
-        
-        tomagatchi.age++;
-        $(".agescale").text(`Age: ${tomagatchi.age}`)
-        if(tomagatchi.age >= 18) {
-            $("#profilepicID").attr("src", "images/adolescentdragon.jpeg");
-        }
-        if(tomagatchi.age >= 30) {
-            $("#profilepicID").addClass("adultdragon");
-            $("section.profilepic").addClass("adultdragon")
-            $("#profilepicID").attr("src", "images/adultdragon.jpeg");
-        }
-    },
+    
     // NOTE - still need to work through this logic
     changeMeterImage (){
         $hungrySadImage = $("<img id='hungrysadimage' src='images/Saddragon.jpeg'></img>")

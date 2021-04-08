@@ -42,7 +42,7 @@ button {
     position: relative;
 }
 
-@keyframes slideRight {
+@keyframes slideIn {
    from {transform: translateX(-100%);
     }
 
@@ -51,10 +51,18 @@ button {
 
 }
 
+@keyframes slideRight {
+
+    from {transform: translateX(0)}
+
+    to {transform: translateX(65vw)}
+    
+}
+
 @keyframes slideOut {
     from {transform: translateX(0)}
 
-    to {transform: translateX(-100%)}
+    to {transform: translateX(-102%)}
 }
 
 .petcard {
@@ -66,7 +74,7 @@ button {
     position: absolute;
     margin-top: -3%;
     border-radius: 100%;
-    animation: 1s slideRight; 
+    animation: 1s slideIn; 
 }
 
 .stats {

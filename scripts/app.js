@@ -166,18 +166,19 @@ const tomagatchi = {
         tomagatchi.happinessScale = tomagatchi.happinessScale + 1;
     },
 
-    // reduceHappyMeter () {
-    //     tomagatchi.happinessScale--;
-    //     if (tomagatchi.happinessScale <= 0) {
-    //         clearInterval(tomagatchi.happyTimer);
-    //         clearInterval(tomagatchi.ageTimer);
-    //         clearInterval(tomagatchi.hungerTimer);
-    //         clearInterval(tomagatchi.energyTimer);
-    //         console.log("Your Tommy died of saddness");
-    //         tomagatchi.petDeath();
-    //         return
-    //     }
-    // },
+    reduceHappyMeter () {
+        tomagatchi.happinessScale--;
+        $(".happyscale").text(`Hungry: ${tomagatchi.happinessScale}`);
+        if (tomagatchi.happinessScale <= 0) {
+            clearInterval(tomagatchi.happyTimer);
+            clearInterval(tomagatchi.ageTimer);
+            clearInterval(tomagatchi.hungerTimer);
+            clearInterval(tomagatchi.energyTimer);
+            console.log("Your Tommy died of saddness");
+            tomagatchi.petDeath();
+            return
+        }
+    },
 
 
     // Logic that governs the timers

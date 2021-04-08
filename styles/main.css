@@ -194,11 +194,3 @@ span {
     font-size: 40px;
     margin-top: 22vw;
 }
-
-.notransition {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
-    transform: none;
-  }

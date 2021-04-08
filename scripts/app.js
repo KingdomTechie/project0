@@ -45,7 +45,6 @@ console.log("Welcome to the world little tomagatchi!");
 const tomagatchi = {
     name: "",
     age: 0,
-    // hungerTimer: null,
     hungerScale: 10,
     energyScale: 10,
     happinessScale: 10,
@@ -60,7 +59,6 @@ const tomagatchi = {
 
         $("input").fadeOut(100);
         $("#petsubmit").fadeOut(100);
-        // $("h1").slideUp(2000);
         $("h1").css("animation", "5s slideOut")
         $(".petcard").css("animation", "3s linear 1s infinite alternate slideRight");
 
@@ -101,13 +99,17 @@ const tomagatchi = {
         tomagatchi.startEnergyTimer();
         tomagatchi.startHappyTimer();
 
-        // This on click event is stored within petName to trigger the meter buttons
-        $("#hungrybutton").on("click", tomagatchi.feedMe);
-        $("#energybutton").on("click", tomagatchi.energizeMe);
-        $("#happybutton").on("click", tomagatchi.makeHappy);
+       // This on click event is stored within petName to trigger the meter buttons
+    $("#hungrybutton").on("click", tomagatchi.feedMe);
+    $("#energybutton").on("click", tomagatchi.energizeMe);
+    $("#happybutton").on("click", tomagatchi.makeHappy);
 
 
     },
+
+
+
+    
         // Logic that increases meters when button is clicked
     feedMe () {
         console.log("Feed me!");

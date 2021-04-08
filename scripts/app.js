@@ -99,11 +99,12 @@ const tomagatchi = {
         $("#energybutton").on("click", tomagatchi.energizeMe);
         $("#happybutton").on("click", tomagatchi.makeHappy);
 
-        $(".petcard").slideToggle(2000);
+        $(".petcard").slide(2000);
     },
         // Logic that increases meters when button is clicked
     feedMe () {
         console.log("Feed me!");
+        if(tomagatchi.hungerScale <= 10)
         tomagatchi.hungerScale = tomagatchi.hungerScale + 1;
     },
 

@@ -3,7 +3,12 @@
   }
 
   body {
-      background-color: white;
+      /* background-color: rgb(185, 184, 121); */
+      background-image: url("https://c4.wallpaperflare.com/wallpaper/760/955/638/artwork-landscape-sky-mountains-wallpaper-preview.jpg");
+      background-size: cover;
+      background-position: cover;
+      background-repeat: no-repeat;
+      height: 100vh;
 
   }
 

@@ -37,7 +37,6 @@
 
 ### Wireframes
 
-![Wireframe 1: Start Page]
-(images/wireframe1.png)
+![Wireframe 1: Start Page](images/wireframe1.png)
 
 

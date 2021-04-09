@@ -51,4 +51,6 @@
 ![Wireframe 2: Main page](images/wireframe2.png)
 ![Wireframe 3: Death page](images/wireframe3.png)
 
+### My favorite code snippit
 
+![Code Snippit](images/Codesnippit.png)

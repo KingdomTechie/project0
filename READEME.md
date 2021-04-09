@@ -34,3 +34,5 @@
 # Approach Taken
 
 - I took an Object Oriented Programming approach whereas I stored 99 % of the functionality of the program into the Object of "tomagatchi".  
+
+

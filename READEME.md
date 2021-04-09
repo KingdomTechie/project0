@@ -37,6 +37,8 @@
 
 ### Wireframes
 
-![Wireframe 1: Start Page](images/wireframe1.png)
+![Wireframe 1: Start page](images/wireframe1.png)
+![Wireframe 2: Main page](images/wireframe2.png)
+![Wireframe 3: Death page](images/wireframe3.png)
 
 

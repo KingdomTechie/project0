@@ -176,12 +176,7 @@ const tomagatchi = {
       
 }
 
-
 $("#petsubmit").on("click", tomagatchi.petName);
-
-
-
-
 
 
 // NOTE - still need to work through this logic - ICE BOX

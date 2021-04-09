@@ -3,7 +3,6 @@
   }
 
   body {
-      /* background-color: rgb(185, 184, 121); */
       background-image: url("https://c4.wallpaperflare.com/wallpaper/760/955/638/artwork-landscape-sky-mountains-wallpaper-preview.jpg");
       background-size: cover;
       background-position: cover;
@@ -34,9 +33,6 @@ button {
 
 /* NOTE - delete border and background colors from meter image divs */
 .hungry {
-
-    /* border-style: solid;  */
-    /* background-color: blue; */
     display: inline-block;
     width: 31vh;
     height: 24vh;
@@ -72,6 +68,7 @@ button {
     
 }
 
+/* Referenced Maiki's work to grasp syntax */
 
 @keyframes slideOut {
     from {transform: translateX(0)}
@@ -80,7 +77,6 @@ button {
 }
 
 .petcard {
-    /* display: none; */
     height: 178px;
     width: 190px;
     border-style: solid;
@@ -93,7 +89,6 @@ button {
 
 
 .profilepic {
-        /* border-style: solid; */
         border-width: thin;
         width: 185px;
         height: 161px;
@@ -136,10 +131,6 @@ section.profilepic.adultdragon {
     max-width: 100%;
 }
 
-
-
-
-/* Work on this  */
 .stats {
     float: right;
     margin-right: 70px;
@@ -154,13 +145,10 @@ section.profilepic.adultdragon {
     max-height: 179px;
     padding: 10%;
     margin-left: -5%
-    /* margin-top: 100px; */
 
 }
 
 .energy {
-    /* border-style: solid; */
-    /* background-color: red; */
     display: inline-block;
     width: 28vh;
     height: 31vh;
@@ -172,7 +160,6 @@ section.profilepic.adultdragon {
 
 
 .happy {
-    /* border-style: solid; */
     display: inline-block;
     width: 31vh;
     height: 33vh;
@@ -194,7 +181,6 @@ span {
 
 
 #deathbar {
-    /* background-color:#810000; */
     color: white;
     text-align: center;
     font-size: 40px;
@@ -259,7 +245,7 @@ span {
   }
   
   #petsubmit:hover {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50; 
     color: white;
     
   }

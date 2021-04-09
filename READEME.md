@@ -1,5 +1,6 @@
 # Welcome to my Tomagatchi!
-- Welcome to my very first programming project with General Assembly.  Albeit a difficult beginning with meeting the challenge of putting all that I have learned into practice on a "grand" scale, this turned out to be an enjoyable project; one that I am pleased with.  It was rewarding to see a creation materialize and to know that I built it.  With the support of my cohort and my Great Resource, I am looking forward to creating more projects in the future.  Enjoy my Tomagatchi.  
+
+Welcome to my very first programming project with General Assembly.  Albeit a difficult beginning with meeting the challenge of putting all that I have learned into practice on a "grand" scale, this turned out to be an enjoyable project; one that I am pleased with.  It was rewarding to see a creation materialize and to know that I built it.  With the support of my cohort and my Great Resource, I am looking forward to creating more projects in the future.  Enjoy my Tomagatchi.  
 
 # User Stories
 ### Landing Page
